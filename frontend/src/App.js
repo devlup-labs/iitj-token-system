@@ -1,16 +1,21 @@
 import './App.css';
+
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import LoginPage from './components/LoginPage';
-import Navbar from './components/Navbar';
+import StudentDashboard from './components/StudentDashboard';
+import Ledger from './components/Ledger'
+import TransactionPage from './components/TransactionPage';
 function App() {
   return (
-    <>
-      <div className='navBar'>
-        <Navbar/>
-      </div>
-      <div className='LoginPage'>
-        <LoginPage/>
-      </div>
-    </>
+    <BrowserRouter>
+    <Routes>
+      {/* temporary */}
+      <Route path='/' element={<LoginPage/>}/>
+      <Route path='/student' element={<StudentDashboard/>}/>
+      <Route path='/ledger' element={<Ledger/>}/>
+      <Route path='/Transaction' element={<TransactionPage/>}/>
+    </Routes>
+  </BrowserRouter>
   );
 }
 
