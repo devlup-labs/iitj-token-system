@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-
+import LoginPage from './components/LoginPage';
+import Navbar from './components/Navbar';
 function App() {
   return (
-    <div className="container">
-      Hello world
-    </div>
+    <>
+      <div className='navBar'>
+        <Navbar/>
+      </div>
+      <div className='LoginPage'>
+        <LoginPage/>
+      </div>
+    </>
   );
 }
 
