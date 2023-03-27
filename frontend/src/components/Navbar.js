@@ -1,7 +1,8 @@
 import React from 'react'
 import './Navbar.css'
+import {Link} from 'react-router-dom'
 
-function Navbar() {
+function Navbar(props) {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid Pbackground">
@@ -11,16 +12,11 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="/#">{}</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/#">{}</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/#">{}</a>
-                        </li>
-                        
+                        {props.links.map((link) =>(
+                            <li className="nav-item" key={link.id}>
+                            <Link className="nav-link" aria-current="page" to={link.link}>{link.name}</Link>
+                            </li>
+                        ) )},
                     </ul>
                 </div>
             </div>

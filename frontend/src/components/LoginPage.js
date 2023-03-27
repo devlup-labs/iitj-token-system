@@ -1,7 +1,11 @@
 import React from 'react'
 import './LoginPage.css'
+import Navbar from './Navbar'
+import {Link} from 'react-router-dom'
 function LoginPage() {
     return (
+        <>
+        <Navbar links={[]}/>
         <div className="card text-center Psize container">
             <div className="card-header">
                 IIT-J Token System
@@ -14,12 +18,13 @@ function LoginPage() {
                 <div className='password'>
                     <input type={'password'} placeholder="Password"/>
                 </div>
-                <a href="/#" className="btn btn-info">Log In</a>
+                <Link to={"/student"} className="btn btn-info">Log In</Link>
             </div>
             <div className="card-footer text-muted">
                 ~ DevlUp Labs
             </div>
         </div>
+        </>
     )
 }
 
