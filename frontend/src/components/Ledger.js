@@ -5,6 +5,7 @@ function Ledger() {
   const links = [
     {id:1, name: "Coupon Bazaar", link: "/couponbazaar"},
     {id:2, name: "Transaction", link: "/transaction"},
+    {id:3, name: "Student Dashboard", link: "/student"}
   ]
   const allColumns = [
     {id:0, Header: "#"},

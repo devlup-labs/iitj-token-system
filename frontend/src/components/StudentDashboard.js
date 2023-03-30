@@ -14,7 +14,7 @@ const StudentDashboard = () => {
         { id: 3, name: "ledger", link: "/ledger" },
         { id: 2, name: "Transaction", link: "/transaction" },
     ]
-    const [numberOfTokens, setNumberOfTokens] = useState(0)
+    const [numberOfTokens] = useState(0)
     return (
         <>
             <Navbar links={links} />
