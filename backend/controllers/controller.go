@@ -15,7 +15,7 @@ import (
 
 var Client *mongo.Client
 
-const ConnectionString = "mongodb://localhost:27017"
+const ConnectionString = "mongodb://mymongo:27017"
 const dataBase = "TokenSystem"
 const collectionName = "Token"
 
