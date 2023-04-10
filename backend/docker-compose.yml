@@ -1,0 +1,10 @@
+version: '1'
+
+services:
+  mymongo:
+    image: mongo
+  
+  iitj:
+    build: .
+    ports:
+      - "8080:8080"
