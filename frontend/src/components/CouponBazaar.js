@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { useState } from 'react'
+import BuyConfirmation from './BuyConfirmation';
 
 function CouponBazaar() {
     const [couponData, setCouponData] = useState([
@@ -34,8 +35,8 @@ function CouponBazaar() {
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                         {item.name}
                         <span className="badge bg-primary rounded-pill">{item.available}</span>
-                        <button type="button" className="btn btn-info btn-sm" onClick={()=>{handleBuyClick(item.id)}}>Buy</button>
-
+                        <BuyConfirmation/>
+                        {/* <button type="button" className="btn btn-info btn-sm" onClick={()=>{handleBuyClick(item.id)}}>Buy</button> */}
                     </li>
                     ))}
 

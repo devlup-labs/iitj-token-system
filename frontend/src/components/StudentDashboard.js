@@ -47,7 +47,7 @@ const StudentDashboard = () => {
                         <li className="list-group-item" style={{ textAlign: "center" }}>Tokens Available <div className='container' style={{ fontSize: "1.5rem", fontWeight: "bold" }}>{numberOfTokens}</div></li>
                     </ul>
                 </div>
-                <button type="button" class="btn btn-secondary btn-lg" style={{height:"5rem", marginTop: "5rem", marginLeft: "14rem"}}><Link to="/transaction" style={{textDecoration:"none", color:"black"}}>Transaction Page</Link></button>
+                {/* <button type="button" class="btn btn-secondary btn-lg" style={{height:"5rem", marginTop: "5rem", marginLeft: "14rem"}}><Link to="/transaction" style={{textDecoration:"none", color:"black"}}>Transaction Page</Link></button> */}
 
             </div>
 
