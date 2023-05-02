@@ -17,7 +17,7 @@ var Client *mongo.Client
 
 const ConnectionString = "mongodb://mymongo:27017"
 const dataBase = "TokenSystem"
-const collectionName = "Token"
+const collectionName = "Transactions"
 
 func init() {
 	var err error
@@ -34,10 +34,10 @@ func init() {
 	fmt.Println("database connected.....")
 }
 
-func CreateArticle(w http.ResponseWriter, r *http.Request, Client *mongo.Client) {
+func CreateStudnet(w http.ResponseWriter, r *http.Request, Client *mongo.Client) {
 	if r.Method == http.MethodPost {
-		var article models.Article
-		err := json.NewDecoder(r.Body).Decode(&article)
+		var student models.Student
+		err := json.NewDecoder(r.Body).Decode(&student)
 		if err != nil {
 			// http.Error(w, err.Error(), http.StatusBadRequest)
 			log.Fatal(err)
@@ -45,7 +45,7 @@ func CreateArticle(w http.ResponseWriter, r *http.Request, Client *mongo.Client)
 		}
 
 		collection := Client.Database(dataBase).Collection(collectionName)
-		_, err = collection.InsertOne(context.TODO(), article)
+		_, err = collection.InsertOne(context.TODO(), student)
 		if err != nil {
 			log.Fatal(err)
 			return
@@ -58,9 +58,9 @@ func CreateArticle(w http.ResponseWriter, r *http.Request, Client *mongo.Client)
 	}
 }
 
-func GetAllAricle(w http.ResponseWriter, r *http.Request, Client *mongo.Client) {
+func GetAllstudents(w http.ResponseWriter, r *http.Request, Client *mongo.Client) {
 	if r.Method == http.MethodGet {
-		var allArticles []models.Article
+		var allStudents []models.Student
 		collection := Client.Database(dataBase).Collection(collectionName)
 		curr, err := collection.Find(context.TODO(), bson.D{})
 		if err != nil {
@@ -69,15 +69,15 @@ func GetAllAricle(w http.ResponseWriter, r *http.Request, Client *mongo.Client) 
 		}
 		defer curr.Close(context.TODO())
 		for curr.Next(context.TODO()) {
-			var elem models.Article
+			var elem models.Student
 			err := curr.Decode(&elem)
 			if err != nil {
 				http.Error(w, "Internal Server error", http.StatusInternalServerError)
 				return
 			}
-			allArticles = append(allArticles, elem)
+			allStudents = append(allStudents, elem)
 		}
 		w.Header().Set("content-Type", "application/json")
-		json.NewEncoder(w).Encode(allArticles)
+		json.NewEncoder(w).Encode(allStudents)
 	}
 }
